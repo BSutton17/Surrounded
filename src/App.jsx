@@ -3,7 +3,7 @@ import './App.css';
 import { io } from 'socket.io-client';
 import { FaPerson, FaPersonDress  } from "react-icons/fa6";
 
-const socket = io("http://localhost:3001"); 
+const socket = io("https://surrounded-server-127d32d9b659.herokuapp.com"); 
 function App() {
   const [rule, setRule] = useState("");
   const [password, setPassword] = useState("");
