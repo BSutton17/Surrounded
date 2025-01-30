@@ -69,18 +69,18 @@ function App() {
       <div className="title-container">
         <h1 className="title">Surrounded</h1>
         <div className="icons">
-        <div className="icon"><FaPerson /></div>
+          <div className="icon"><FaPerson /></div>
           <div className="icon"><FaPersonDress /></div>
           <div className="icon"><FaPerson /></div>
           <div className="icon"><FaPersonDress /></div>
+          <div className="icon"><FaPerson /></div>
+          <div className="icon"><FaPersonDress /></div>
+          <div className="icon"><FaPerson /></div>
+          <div className="icon"><FaPerson /></div>
+          <div className="icon"><FaPerson /></div>
           <div className="icon"><FaPersonDress /></div>
           <div className="icon"><FaPerson /></div>
           <div className="icon"><FaPersonDress /></div>
-          <div className="icon"><FaPersonDress /></div>
-          <div className="icon"><FaPerson /></div>
-          <div className="icon"><FaPersonDress /></div>
-          <div className="icon"><FaPersonDress /></div>
-          <div className="icon"><FaPerson /></div>
         </div>
       </div>
   
