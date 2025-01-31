@@ -69,7 +69,7 @@ function App() {
     "Say a type of rock/gem in your answer (Granite, Diamond, Ruby)",
     "Act like you really don't want to answer before givng your answer",
     "Mention something space related in your answer",
-    "The person to your left ust do the \"layup\" gesture before your answer",
+    "The person to your left must do the \"layup\" gesture before your answer",
     "Say \"I'm cooked\" or \"I'm so cooked\" before you answer",
     "Place something on the floor/table before your answer",
     "Say your height at some point in your answer",
