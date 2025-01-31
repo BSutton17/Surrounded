@@ -39,7 +39,7 @@ function App() {
     "Incorporate the phrase \"what do you mean\" into your answer",
     "Answer in one sentence", 
     "Mention how \"tall\" or \"short\" something is in your answer ",
-    "Answer as serious as possible (don't smile or laught)", 
+    "Answer as serious as possible (don't smile or laugh)", 
     "Compliment the person during your answer", 
     "Mention the name of a fast food restaurant in your answer", 
     "Mention a city in your answer", 
