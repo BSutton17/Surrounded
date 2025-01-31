@@ -75,6 +75,7 @@ function App() {
     "Say your height at some point in your answer",
     "Answer in the form of a metaphor",
     "Put your hands in the \"prayer\" positon, while answering",
+    "First person answer normally, everyone else answer the previous persons question"
   ];
 
   useEffect(() => {
