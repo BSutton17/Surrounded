@@ -23,7 +23,7 @@ function App() {
     "Repeat part of the question before answering",
     "Your answer must contain a number, even if it doesn’t make sense",
     "Always reference something that happened 'yesterday'",
-    "Answer normally, but touch your face whenever you lie",
+    "At any point, touch your head/face while you answer",
     "Use the name of a famous person somewhere in your answer",
     "Act like you’re unsure of your answer, even if it’s obvious",
     "Your answer must always contain the word 'technically'",
@@ -117,18 +117,18 @@ function App() {
       <div className="title-container">
         <h1 className="title">Surrounded</h1>
         <div className="icons">
-        <div className="icon"><FaPerson /></div>
+          <div className="icon"><FaPerson /></div>
           <div className="icon"><FaPersonDress /></div>
           <div className="icon"><FaPerson /></div>
           <div className="icon"><FaPersonDress /></div>
+          <div className="icon"><FaPerson /></div>
+          <div className="icon"><FaPersonDress /></div>
+          <div className="icon"><FaPerson /></div>
+          <div className="icon"><FaPerson /></div>
+          <div className="icon"><FaPerson /></div>
           <div className="icon"><FaPersonDress /></div>
           <div className="icon"><FaPerson /></div>
           <div className="icon"><FaPersonDress /></div>
-          <div className="icon"><FaPersonDress /></div>
-          <div className="icon"><FaPerson /></div>
-          <div className="icon"><FaPersonDress /></div>
-          <div className="icon"><FaPersonDress /></div>
-          <div className="icon"><FaPerson /></div>
         </div>
       </div>
   
