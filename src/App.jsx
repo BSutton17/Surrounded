@@ -49,7 +49,7 @@ function App() {
     "Use only single-syllable words in your answer",
     "Mention a sport in your answer",
     "Include \"In my opinon...\" somewhere in your answer",
-    "Reference something you are wearing somewhere in your asnwer",
+    "Reference something you are wearing in your asnwer",
     "Say the name of the person to your right at some point in your answer",
     "Say the name of the person to your left at some point in your answer",
     "At some point, stretch while you answer",
