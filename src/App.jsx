@@ -11,6 +11,11 @@ function App() {
   const [availableRules, setAvailableRules] = useState([]);
 
   const rules = [
+    "Say the perosn in the middles name during your answer",
+    "Say \"tree\" at some point in your answer",
+    "Say a video game during your answer",
+    "name a popular song during your answer",
+    "say something football related in your answer",
     "Answer as if you are the person to your left",
     "Answer as if you are the person to your right",
     "Answer the question how the person asking it would answer",
