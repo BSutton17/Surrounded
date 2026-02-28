@@ -122,7 +122,7 @@ function App() {
     <>
       <div className="title-container">
         <h1 className="title">Surrounded</h1>
-        <h3>Jackson's ass is so fat</h3>
+      
         <div className="icons">
           <div className="icon"><FaPerson /></div>
           <div className="icon"><FaPersonDress /></div>
