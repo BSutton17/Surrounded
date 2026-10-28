@@ -141,3 +141,115 @@ input{
   left: 0;
   color: #282c34;
 }
+
+.mode-button {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 1rem;
+}
+
+/* Freaky Friday: same layout as Surrounded, orange and green palette */
+
+body.freaky {
+  background-color: #14281d;
+}
+
+body.freaky .container {
+  background: rgba(8, 20, 12, 0.85);
+  box-shadow: 0 4px 10px rgba(255, 140, 26, 0.3);
+}
+
+body.freaky .rule {
+  background: #2d5a3d;
+}
+
+body.freaky .title {
+  color: #ff8c1a;
+}
+
+body.freaky button {
+  background: #ff8c1a;
+}
+
+body.freaky button:hover {
+  background: #e07000;
+}
+
+body.freaky input {
+  background-color: #14281d;
+  color: #14281d;
+}
+
+.icon.orange {
+  color: #ff8c1a;
+}
+
+.icon.green {
+  color: #5cd67a;
+}
+
+.icon.swap {
+  color: white;
+  font-size: 18px;
+}
+
+.swap-name {
+  display: block;
+  color: #ff8c1a;
+  font-size: 2.4rem;
+}
+
+body.freaky .name-input {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  bottom: auto;
+  transform: translateX(-50%);
+  width: 220px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  text-align: center;
+  color: white;
+  background-color: #2d5a3d;
+  border: 2px solid #ff8c1a;
+  border-radius: 10px;
+  z-index: 3;
+}
+
+body.freaky .title-container {
+  margin-top: 40px;
+}
+
+.middle-picker {
+  position: fixed;
+  bottom: 60px;
+  left: 0;
+  width: 100vw;
+  max-height: 30vh;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.middle-label {
+  width: 100%;
+  font-size: 0.9rem;
+  color: #5cd67a;
+}
+
+body.freaky .middle-picker button {
+  font-size: 1rem;
+  padding: 6px 14px;
+  background: #2d5a3d;
+  color: white;
+}
+
+body.freaky .middle-picker button.selected {
+  background: #ff8c1a;
+  color: black;
+}

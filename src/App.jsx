@@ -1,14 +1,39 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import { io } from 'socket.io-client';
 import { FaPerson, FaPersonDress  } from "react-icons/fa6";
+import FreakyFriday from './FreakyFriday';
 
-const socket = io("https://surrounded-server-127d32d9b659.herokuapp.com"); 
+const socket = io(import.meta.env.VITE_SERVER_URL || "https://surrounded-server-127d32d9b659.herokuapp.com");
+
+// A stable id per device, so a player who drops and comes back keeps their swap.
+const playerId = (() => {
+  const fresh = Math.random().toString(36).slice(2) + Date.now().toString(36);
+  try {
+    if (!localStorage.getItem("playerId")) localStorage.setItem("playerId", fresh);
+    return localStorage.getItem("playerId") || fresh;
+  } catch {
+    return fresh;
+  }
+})();
+
+const savedName = () => {
+  try {
+    return localStorage.getItem("playerName") || "";
+  } catch {
+    return "";
+  }
+};
+
 function App() {
   const [rule, setRule] = useState("Waiting for host");
   const [password, setPassword] = useState("");
   const [admin, isAdmin] = useState(false)
   const [availableRules, setAvailableRules] = useState([]);
+  const [freaky, setFreaky] = useState(null);
+  const [name, setName] = useState(savedName);
+  const nameRef = useRef(name);
+  const mode = freaky?.mode ?? "surrounded";
 
   const rules = [
     "Say the perosn in the middles name during your answer",
@@ -27,7 +52,7 @@ function App() {
     "Say a curse word in your answer",
     "Answer in one word",
     "Interrupt the person in the middle while they are asking their question",
-    "Ask the person in the middle to repeat their question"
+    "Ask the person in the middle to repeat their question",
     "Your answer must contain the name of a Disney princess",
     "Say the name of someone in this room",
     "Say your own name at some point in the answer",
@@ -104,9 +129,25 @@ function App() {
     });
 
     return () => {
-      socket.off("updateRule"); 
+      socket.off("updateRule");
     };
   }, []);
+
+  useEffect(() => {
+    const join = () => socket.emit("join", { id: playerId, name: nameRef.current });
+    socket.on("connect", join);
+    socket.on("freakyState", setFreaky);
+    if (socket.connected) join();
+
+    return () => {
+      socket.off("connect", join);
+      socket.off("freakyState", setFreaky);
+    };
+  }, []);
+
+  useEffect(() => {
+    document.body.classList.toggle("freaky", mode === "freaky");
+  }, [mode]);
 
   useEffect(() => {
     setAvailableRules([...rules]);
@@ -133,6 +174,44 @@ function App() {
     socket.emit("ruleChange", newRule);
   };
 
+  const changeName = (newName) => {
+    setName(newName);
+    nameRef.current = newName;
+    try {
+      localStorage.setItem("playerName", newName);
+    } catch {
+      // Name just won't survive a reload.
+    }
+    socket.emit("join", { id: playerId, name: newName });
+  };
+
+  const modeButton = admin && (
+    <button
+      className="mode-button"
+      onClick={() => socket.emit("setMode", mode === "freaky" ? "surrounded" : "freaky")}
+    >
+      {mode === "freaky" ? "Surrounded" : "Freaky Friday"}
+    </button>
+  );
+
+  if (mode === "freaky") {
+    return (
+      <>
+        <FreakyFriday
+          state={freaky}
+          playerId={playerId}
+          name={name}
+          onNameChange={changeName}
+          admin={admin}
+          onNewRound={() => socket.emit("newRound")}
+          onSelectMiddle={(id) => socket.emit("setMiddle", id)}
+        />
+        {modeButton}
+        <input value={password} onChange={(e)=>setPassword(e.target.value)}/>
+      </>
+    );
+  }
+
   return (
     <>
       <div className="title-container">
@@ -158,6 +237,7 @@ function App() {
         <h1 className="rule">{rule}</h1>
         {admin && <button onClick={changeRule}>Change Rule</button>}
       </div>
+      {modeButton}
       <input value={password} onChange={(e)=>setPassword(e.target.value)}/>
     </>
   );
